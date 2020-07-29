@@ -1,5 +1,3 @@
-package application;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,6 +30,7 @@ public class SampleController {
 	    	} catch (Exception e){
 	    		System.out.println("Cant load new window");
 	    	}
+
 	    }
 
 	    @FXML
@@ -58,6 +57,22 @@ public class SampleController {
 	    		Parent root1 = (Parent) fxmlLoader.load();
 	    		Stage stage = new Stage();
 	    		stage.setTitle("Administrator");
+	    		stage.setScene(new Scene(root1));
+	    		stage.show();
+
+	   			((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+	    	} catch (Exception e){
+	    		System.out.println("Cant load new window");
+	    	}
+	    }
+	    
+	    @FXML
+	    void goToSurveyPage(ActionEvent event) {
+	    	try{
+	    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("survey.fxml"));
+	    		Parent root1 = (Parent) fxmlLoader.load();
+	    		Stage stage = new Stage();
+	    		stage.setTitle("Survey");
 	    		stage.setScene(new Scene(root1));
 	    		stage.show();
 
