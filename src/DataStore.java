@@ -14,7 +14,7 @@ import java.util.Map;
 /*
  * Survey CSV Notes:
  * The header of the CSV File is this:
- * 	employeeId[0], surveyDate[1], location[2], temperatureValue[3], symptoms[4], ...?
+ * 	employeeId[0], surveyDate[1], location[2], temperatureValue[3], travel14Days[4], covidSymptoms[5], covidContact[6]
  */
 
 public class DataStore {
@@ -87,14 +87,14 @@ public class DataStore {
 		return employeeList;		
 	}
 	
-	public HashMap<String, ArrayList<Survey>> loadSurveys() throws Exception {
+	public ArrayList<Survey> loadSurveysList() throws Exception {
 		// read all of the data from the employee file and decrypt the data 
 		byte[] fileContent = Files.readAllBytes(Paths.get(surveyFile));
 		String fileString = encryption.decryptData(fileContent);
 		
 		// prepare for loop 
 		String[] fileLines = fileString.split("\\n"); //split lines in the decrypted file using newline character
-		HashMap<String, ArrayList<Survey>> surveyMap = new HashMap<String, ArrayList<Survey>>(); // create an ArrayList of surveys
+		ArrayList<Survey> surveyList = new ArrayList<Survey>(); // create an ArrayList of surveys
 		
 		// loop through strings in the fileLines and create Employee objects and add them to ListArray
 		for (String line: fileLines) {
@@ -103,50 +103,150 @@ public class DataStore {
 			String date = fields[1];
 			String location = fields[2];
 			String temperature = fields[3];
-			String symptoms = fields[4];
-			Survey tempSurvey = new Survey(employeeId, date, location, temperature);
-			tempSurvey.setSymptoms(symptoms);
-
-			if (surveyMap.containsKey(employeeId)) {
-				ArrayList<Survey> surveyList = surveyMap.get(employeeId);
-				surveyList.add(tempSurvey);
-				surveyMap.put(employeeId, surveyList);
+			
+			Boolean travel14Days = null;
+			Boolean covidSymptoms = null; 
+			Boolean covidContact = null;
+			
+			if (fields[4].equals("true")) {
+				travel14Days = true ;
 			}
 			else {
-				ArrayList<Survey> surveyList = new ArrayList<Survey>();
-				surveyList.add(tempSurvey);
-				surveyMap.put(employeeId, surveyList);
+				travel14Days = false ;
 			}
+			
+			if (fields[5].equals("true")) {
+				covidSymptoms = true ;
+			}
+			else {
+				covidSymptoms = false ;
+			}			
+			
+			if (fields[6].equals("true")) {
+				covidContact = true ;
+			}
+			else {
+				covidContact = false ;
+			}
+			
+			Survey tempSurvey = new Survey(employeeId, date, location, temperature, travel14Days, covidSymptoms, covidContact);
+
+			surveyList.add(tempSurvey);
+
 		}
 		
-		return surveyMap;		
+		return surveyList;		
 	}
 	
-	public void saveSurveys(HashMap<String, ArrayList<Survey>> surveyMap) throws Exception {
-		
+	public void saveSurveysList(ArrayList<Survey> surveyList) throws Exception {	
 
 		String surveyOutput = "";
 		// loop through hash map elements to get all ArrayLists of Surveys
-		for (Map.Entry<String, ArrayList<Survey>> mapElement : surveyMap.entrySet()) {
+
+		// convert ListArray of Survey to CSV String	
+		for (Survey survey: surveyList) {
+			surveyOutput += survey.getEmployeeId() + ",,";
+			surveyOutput += survey.getSurveyDate() + ",,";
+			surveyOutput += survey.getLocation() + ",,";
+			surveyOutput += survey.getTemperatureValue() + ",,";
 			
-			// convert ListArray of Survey to CSV String	
-			for (Survey survey: mapElement.getValue()) {
-				surveyOutput += survey.getEmployeeId() + ",,";
-				surveyOutput += survey.getSurveyDate() + ",,";
-				surveyOutput += survey.getLocation() + ",,";
-				surveyOutput += survey.getTemperatureValue() + ",,";
-				surveyOutput += survey.getSymptoms() + ",,";
-				surveyOutput += "\n";
+			if (survey.getTravel14Days()) {
+				surveyOutput +=  "true,,";
+			}
+			else {
+				surveyOutput +=  "false,,";
 			}
 			
-		}	
+			if (survey.getTravel14Days()) {
+				surveyOutput +=  "true,,";
+			}
+			else {
+				surveyOutput +=  "false,,";
+			}
+			
+			if (survey.getTravel14Days()) {
+				surveyOutput +=  "true,,";
+			}
+			else {
+				surveyOutput +=  "false,,";
+			}
+			
+			surveyOutput += "\n";
+		}
+				
 		// encrypt file data
 		byte[] encryptedSurveys = encryption.encryptData(surveyOutput);
 		
 		// write data to a file
 		FileOutputStream fos = new FileOutputStream(surveyFile);
 		fos.write(encryptedSurveys);
-		fos.close();	
-		}		
+		fos.close();
+		
+	}	
+	
+	// comment these out unless we need to use hash map with key as employee ID and value as list of surveys by that employee
+//	public HashMap<String, ArrayList<Survey>> loadSurveysHM() throws Exception {
+//		// read all of the data from the employee file and decrypt the data 
+//		byte[] fileContent = Files.readAllBytes(Paths.get(surveyFile));
+//		String fileString = encryption.decryptData(fileContent);
+//		
+//		// prepare for loop 
+//		String[] fileLines = fileString.split("\\n"); //split lines in the decrypted file using newline character
+//		HashMap<String, ArrayList<Survey>> surveyMap = new HashMap<String, ArrayList<Survey>>(); // create an ArrayList of surveys
+//		
+//		// loop through strings in the fileLines and create Employee objects and add them to ListArray
+//		for (String line: fileLines) {
+//			String[] fields = line.split(",,");
+//			String employeeId = fields[0];
+//			String date = fields[1];
+//			String location = fields[2];
+//			String temperature = fields[3];
+//			String symptoms = fields[4];
+//			Survey tempSurvey = new Survey(employeeId, date, location, temperature);
+//			tempSurvey.setSymptoms(symptoms);
+//
+//			if (surveyMap.containsKey(employeeId)) {
+//				ArrayList<Survey> surveyList = surveyMap.get(employeeId);
+//				surveyList.add(tempSurvey);
+//				surveyMap.put(employeeId, surveyList);
+//			}
+//			else {
+//				ArrayList<Survey> surveyList = new ArrayList<Survey>();
+//				surveyList.add(tempSurvey);
+//				surveyMap.put(employeeId, surveyList);
+//			}
+//		}
+//		
+//		return surveyMap;		
+//	}
+//	
+//	public void saveSurveysHM(HashMap<String, ArrayList<Survey>> surveyMap) throws Exception {
+//		
+//
+//		String surveyOutput = "";
+//		// loop through hash map elements to get all ArrayLists of Surveys
+//		for (Map.Entry<String, ArrayList<Survey>> mapElement : surveyMap.entrySet()) {
+//			
+//			// convert ListArray of Survey to CSV String	
+//			for (Survey survey: mapElement.getValue()) {
+//				surveyOutput += survey.getEmployeeId() + ",,";
+//				surveyOutput += survey.getSurveyDate() + ",,";
+//				surveyOutput += survey.getLocation() + ",,";
+//				surveyOutput += survey.getTemperatureValue() + ",,";
+//				surveyOutput += survey.getSymptoms() + ",,";
+//				surveyOutput += "\n";
+//			}
+//			
+//		}	
+//		// encrypt file data
+//		byte[] encryptedSurveys = encryption.encryptData(surveyOutput);
+//		
+//		// write data to a file
+//		FileOutputStream fos = new FileOutputStream(surveyFile);
+//		fos.write(encryptedSurveys);
+//		fos.close();
+//		
+//	}
+		
 		
 }
