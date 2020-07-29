@@ -36,7 +36,7 @@ public class SampleController {
 	    @FXML
 	    void toCreateNewPage(ActionEvent event) {
 	    	try{
-	    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("New.fxml"));
+	    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Password.fxml"));
 	    		Parent root1 = (Parent) fxmlLoader.load();
 	    		Stage stage = new Stage();
 	    		stage.setTitle("Create New");
