@@ -30,9 +30,9 @@
          <effect>
             <DropShadow />
          </effect></Button>
-      <Label layoutX="129.0" layoutY="14.0" prefHeight="44.0" prefWidth="243.0" text="Create a Survey">
+      <Label layoutX="169.0" layoutY="14.0" prefHeight="44.0" prefWidth="243.0" text="Create a Survey">
          <font>
-            <Font name="System Bold" size="36.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
       <Label layoutX="38.0" layoutY="90.0" text="Locations:">
@@ -50,3 +50,4 @@
       <DropShadow />
    </effect>
 </AnchorPane>
+
