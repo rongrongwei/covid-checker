@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.NewController">
+   <children>
+      <TextField fx:id="location1" layoutX="132.0" layoutY="73.0" prefHeight="57.0" prefWidth="230.0" promptText="             Add number of locations">
+         <effect>
+            <DropShadow color="#1090c6" />
+         </effect></TextField>
+      <TextField fx:id="question1" layoutX="135.0" layoutY="172.0" prefHeight="57.0" prefWidth="230.0" promptText="              Add new questions  ">
+         <effect>
+            <DropShadow color="#197fb0" />
+         </effect></TextField>
+      <Button layoutX="391.0" layoutY="186.0" mnemonicParsing="false" onAction="#addButton" prefHeight="28.0" prefWidth="74.0" text="ADD">
+         <effect>
+            <DropShadow />
+         </effect></Button>
+      <Button layoutX="391.0" layoutY="88.0" mnemonicParsing="false" onAction="#enterButton" prefHeight="28.0" prefWidth="74.0" text="ADD">
+         <effect>
+            <DropShadow />
+         </effect></Button>
+      <Button layoutX="182.0" layoutY="284.0" mnemonicParsing="false" onAction="#doneButton" prefHeight="57.0" prefWidth="137.0" text="DONE">
+         <effect>
+            <DropShadow />
+         </effect></Button>
+      <Label layoutX="129.0" layoutY="14.0" prefHeight="44.0" prefWidth="243.0" text="Create a Survey">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="38.0" layoutY="90.0" text="Locations:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="36.0" layoutY="189.0" text="Questions:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+   <effect>
+      <DropShadow />
+   </effect>
+</AnchorPane>
