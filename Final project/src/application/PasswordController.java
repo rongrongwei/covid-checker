@@ -4,6 +4,7 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -39,6 +40,24 @@ public class PasswordController {
     		a.setHeaderText("Wrong Password");
     		a.setContentText("Please re-enter again");
     		a.show(); 
+    	}
+    	
+    	
+    }
+    
+    @FXML
+    void goBack(ActionEvent event) {
+    	try{
+    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("frontPage.fxml"));
+    		Parent root1 = (Parent) fxmlLoader.load();
+    		Stage stage = new Stage();
+    		stage.setTitle("Survey");
+    		stage.setScene(new Scene(root1));
+    		stage.show();
+
+   			((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+    	} catch (Exception e){
+    		System.out.println("Cant load new window");
     	}
     }
 
