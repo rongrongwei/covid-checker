@@ -82,4 +82,20 @@ public class SampleController {
 	    		System.out.println("Cant load new window");
 	    	}
 	    }
+	    
+	    @FXML
+	    void goBack(ActionEvent event) {
+	    	try{
+	    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("frontPage.fxml"));
+	    		Parent root1 = (Parent) fxmlLoader.load();
+	    		Stage stage = new Stage();
+	    		stage.setTitle("Survey");
+	    		stage.setScene(new Scene(root1));
+	    		stage.show();
+
+	   			((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+	    	} catch (Exception e){
+	    		System.out.println("Cant load new window");
+	    	}
+	    }
 }
