@@ -15,7 +15,7 @@
             <Image url="@../../mainBackground.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="183.0" layoutY="14.0" prefHeight="35.0" prefWidth="303.0" style="-fx-background-color: linear-gradient;" text="COVID-19 Check" textFill="WHITE">
+      <Label layoutX="183.0" layoutY="14.0" prefHeight="35.0" prefWidth="303.0" text="COVID-19 Check" textFill="WHITE">
          <font>
             <Font size="40.0" />
          </font>
