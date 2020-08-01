@@ -1,8 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<AnchorPane minHeight="293.0" minWidth="501.0" prefHeight="509.0" prefWidth="501.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SurveyController">
+   <children>
+      <ImageView fitHeight="509.0" fitWidth="900.0" layoutX="-7.0" opacity="0.33" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../mainBackground.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="employeeIDBox" layoutX="113.0" layoutY="38.0" prefHeight="33.0" prefWidth="297.0" promptText="Employee ID">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <ImageView fitHeight="48.0" fitWidth="85.0" layoutY="7.0" opacity="0.68" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../backbtn-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#goBack" opacity="0.001" prefHeight="44.0" prefWidth="66.0" text="back button">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <TextField fx:id="DateBox" layoutX="114.0" layoutY="79.0" prefHeight="33.0" prefWidth="297.0" promptText="Date (08/07/2020)">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <TextField fx:id="temperatureBox" layoutX="114.0" layoutY="157.0" prefHeight="33.0" prefWidth="297.0" promptText="Temperature (101.3)">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <VBox layoutX="113.0" layoutY="212.0" prefHeight="53.0" prefWidth="336.0">
+         <children>
+            <Label text="Have you traveled in the past 14 days outside of TX?" />
+            <RadioButton fx:id="travelYes" mnemonicParsing="false" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="travel" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="travelNo" mnemonicParsing="false" text="No" toggleGroup="$travel" />
+         </children>
+      </VBox>
+      <VBox layoutX="113.0" layoutY="273.0" prefHeight="79.0" prefWidth="405.0">
+         <children>
+            <Label prefHeight="51.0" prefWidth="359.0" text="Have you had any COVID-related symptoms like fever, runny nose, dry cough?" wrapText="true" />
+            <RadioButton fx:id="symptomsYes" mnemonicParsing="false" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="symptoms" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="symptomsNo" mnemonicParsing="false" text="No" toggleGroup="$symptoms" />
+         </children>
+      </VBox>
+      <VBox layoutX="114.0" layoutY="372.0" prefHeight="79.0" prefWidth="359.0">
+         <children>
+            <Label prefHeight="46.0" prefWidth="359.0" text="Have you been in contact with anyone who has tested positive for COVID-19 in the last 14 days?" wrapText="true" />
+            <RadioButton fx:id="contactYes" mnemonicParsing="false" text="Yes">
+               <toggleGroup>
+                  <ToggleGroup fx:id="contact" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="contactNo" mnemonicParsing="false" text="No" toggleGroup="$contact" />
+         </children>
+      </VBox>
+      <ComboBox fx:id="locationBox" layoutX="113.0" layoutY="123.0" prefHeight="27.0" prefWidth="297.0" />
+      <Button fx:id="submitButton" layoutX="316.0" layoutY="469.0" mnemonicParsing="false" onAction="#submitButton" prefHeight="26.0" prefWidth="151.0" style="-fx-background-color: linear-gradient(#61a2b1, #2A5058);" text="Submit Survey" textFill="WHITE">
+         <font>
+            <Font name="Arial Narrow Bold" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
 </AnchorPane>
-
