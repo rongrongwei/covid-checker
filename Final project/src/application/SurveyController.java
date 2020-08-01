@@ -30,7 +30,6 @@ public class SurveyController {
 	@FXML
 	private TextField locationDateTime;
 	
-	@FXML
 	public ArrayList<String> list = new ArrayList<String>();
 	
 	private Scanner reader;
@@ -64,8 +63,10 @@ public class SurveyController {
 		list.add(page);
 		list.add(stamp);
 		
-		FileWriter f = new FileWriter("SurveyResults.txt");
+		File file = new File"SurveyResults.txt");
+		FileWriter f = new FileWriter(file);
 		BufferedWriter writer = new BufferedWriter(f);
+		
 		for(int i = 0; i < list.size(); i++){
 			writer.write(list.get(i).toString());
 			writer.newLine();
@@ -79,19 +80,19 @@ public class SurveyController {
 	}
 	
 	@FXML
-    public void goBack(ActionEvent event) {
-    	try{
-    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("frontPage.fxml"));
-    		Parent root1 = (Parent) fxmlLoader.load();
-    		Stage stage = new Stage();
-    		stage.setTitle("Survey");
-    		stage.setScene(new Scene(root1));
-    		stage.show();
+    	public void goBack(ActionEvent event) {
+    		try{
+    			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("frontPage.fxml"));
+    			Parent root1 = (Parent) fxmlLoader.load();
+    			Stage stage = new Stage();
+    			stage.setTitle("Survey");
+    			stage.setScene(new Scene(root1));
+    			stage.show();
 
    			((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
-    	} catch (Exception e){
+    		} catch (Exception e){
     		System.out.println("Cant load new window");
+    		}
     	}
-    }
 	 
 }
