@@ -12,8 +12,9 @@ import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import model.DataStore;
 import model.Survey;
-
-
+/** 
+* Displays the survey results from survey page
+*/
 
 public class AdminController {
 	
