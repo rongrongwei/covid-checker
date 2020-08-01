@@ -6,7 +6,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-
+/** 
+* The main page controller
+* Displays the main page
+*/
 public class SampleController {
 	 @FXML
 	    private Button signIn;
