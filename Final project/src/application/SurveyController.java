@@ -18,7 +18,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
-
+/** 
+* Asks user to answer some questions and store that data
+*/
 public class SurveyController {
 
 	@FXML
