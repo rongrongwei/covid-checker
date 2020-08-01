@@ -8,6 +8,7 @@ public class Survey {
 	private Boolean travel14Days;
 	private Boolean covidSymptoms; // 
 	private Boolean covidContact; // contact with anyone with symptoms
+	private Boolean sickStatus;
 	
 	public Survey(String employeeId, String surveyDate, String location, String temperatureValue) {
 		this.employeeId = employeeId;
@@ -26,6 +27,18 @@ public class Survey {
 		this.travel14Days = travel14Days;
 		this.covidSymptoms = covidSymptoms;
 		this.covidContact = covidContact;
+	}
+	
+	public Boolean isSickSurvey() {
+		
+		if (travel14Days || covidSymptoms || covidContact || (Double.parseDouble(temperatureValue)>100.4)) {
+			sickStatus = true;
+			
+		} 
+		else {
+			sickStatus = false;
+		}
+		return sickStatus;
 	}
 
 	public String getEmployeeId() {
