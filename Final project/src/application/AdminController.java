@@ -4,8 +4,12 @@ package application;
 import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.stage.Stage;
 import model.DataStore;
 import model.Survey;
 import model.TestDataStore;
@@ -32,4 +36,20 @@ public class AdminController {
 		
 		
 	}
+	
+	@FXML
+    void goBack(ActionEvent event) {
+    	try{
+    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("frontPage.fxml"));
+    		Parent root1 = (Parent) fxmlLoader.load();
+    		Stage stage = new Stage();
+    		stage.setTitle("Survey");
+    		stage.setScene(new Scene(root1));
+    		stage.show();
+
+   			((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
+    	} catch (Exception e){
+    		System.out.println("Cant load new window");
+    	}
+    }
 }
