@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 /** 
 * Ask the administrator for password in order to go to the create new page
 */
-public class PasswordController {
+public class PasswordController2 {
 	
 	@FXML
 	private AnchorPane passwordPane;
@@ -29,7 +29,7 @@ public class PasswordController {
 
     	Alert a = new Alert(AlertType.NONE); 
     	if (p.equals(key)) {
-    		passwordPane= FXMLLoader.load(getClass().getResource("New.fxml"));
+    		passwordPane= FXMLLoader.load(getClass().getResource("Admin.fxml"));
 	        Stage stage = new Stage();
 	        Scene scene = new Scene(passwordPane);
 	        stage.setScene(scene);

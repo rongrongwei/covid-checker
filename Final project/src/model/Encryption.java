@@ -25,7 +25,6 @@ public class Encryption {
 		myKey.loadKeys();
 	}
 	public byte[] encryptData(String inputData) {
-		System.out.println(inputData);
 		try 
 		{
 			cipher.init(Cipher.ENCRYPT_MODE, myKey.getSecretKey());

@@ -57,10 +57,10 @@ public class SampleController {
 	    @FXML
 	    void toAdminPage(ActionEvent event) {
 	    	try{
-	    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Admin.fxml"));
+	    		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PasswordAdmin.fxml"));
 	    		Parent root1 = (Parent) fxmlLoader.load();
 	    		Stage stage = new Stage();
-	    		stage.setTitle("Administrator");
+	    		stage.setTitle("Administrator Password");
 	    		stage.setScene(new Scene(root1));
 	    		stage.show();
 
@@ -82,7 +82,8 @@ public class SampleController {
 
 	   			((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
 	    	} catch (Exception e){
-	    		System.out.println("Cant load new window");
+	    		e.printStackTrace();
+	    		System.out.println("Cant load new window!");
 	    	}
 	    }
 	    

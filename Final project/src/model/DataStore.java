@@ -1,5 +1,7 @@
 package model;
+import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -27,8 +29,14 @@ public class DataStore {
 	
 	public DataStore(String password, String keyFile, String employeeFile, String surveyFile) throws Exception {
 		encryption = new Encryption(password, keyFile);
+		
+		
 		this.employeeFile = employeeFile;	
 		this.surveyFile = surveyFile;
+		
+		checkFile(employeeFile);
+		checkFile(surveyFile);
+		
 	}
 	
 	
@@ -93,14 +101,19 @@ public class DataStore {
 		// read all of the data from the employee file and decrypt the data 
 		byte[] fileContent = Files.readAllBytes(Paths.get(surveyFile));
 		String fileString = encryption.decryptData(fileContent);
-		
 		// prepare for loop 
 		String[] fileLines = fileString.split("\\n"); //split lines in the decrypted file using newline character
 		ArrayList<Survey> surveyList = new ArrayList<Survey>(); // create an ArrayList of surveys
 		
 		// loop through strings in the fileLines and create Employee objects and add them to ListArray
 		for (String line: fileLines) {
+			
 			String[] fields = line.split(",,");
+			if (fields.length != 7) {
+				System.out.println("ERROR: survey file has incorrect number of fields");
+				continue;
+			}
+
 			String employeeId = fields[0];
 			String date = fields[1];
 			String location = fields[2];
@@ -185,6 +198,13 @@ public class DataStore {
 		fos.close();
 		
 	}	
+	
+    public void checkFile(String fileName) throws IOException {
+    	File inventoryFile = new File(fileName);
+    	if (!(inventoryFile.exists())) {
+    		inventoryFile.createNewFile();
+    	}
+    }
 	
 	// comment these out unless we need to use hash map with key as employee ID and value as list of surveys by that employee
 //	public HashMap<String, ArrayList<Survey>> loadSurveysHM() throws Exception {

@@ -8,7 +8,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
+//import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import model.DataStore;
 import model.Survey;
@@ -18,23 +20,36 @@ import model.Survey;
 
 public class AdminController {
 	
-	@FXML 
-	TextArea resultsTextArea;
+    @FXML
+    private ListView<String> adminList;
 	
 	@FXML
 	Button resultsButton;
 	private DataStore data;
-	private Survey survey;
-	private ArrayList<Survey> arr = new ArrayList<Survey>();
+	//private ArrayList<Survey> arr = new ArrayList<Survey>();
 	
 	
 	@FXML
 	public void resultsButtonAction(ActionEvent event) throws Exception{
-		arr =(data.loadSurveysList());
-		survey =arr.get(0);
-		resultsTextArea.setText(survey.getEmployeeId()+ " "+survey.getSurveyDate()+" "+survey.getLocation()+" "+survey.getTemperatureValue()+" "+survey.getTravel14Days()+" "+survey.getCovidSymptoms()+" "+survey.getCovidContact());
 		
+		adminList.getItems().clear();
+		data = new DataStore("123", "keyfile", "employeefile", "surveyfile"); // remove hard-coding later
+    	ArrayList<Survey> surveyList = data.loadSurveysList();
+    	
+		for (Survey survey: surveyList) {
+			
+			// only display sick employees
+			if (survey.isSickSurvey()) {
+	    		String listItem = survey.getEmployeeId() +":    " + survey.getTemperatureValue();
+	    		adminList.getItems().add(listItem);
+			}
+			
+		}
 		
+		//resultsTextArea.setText(survey.getEmployeeId()+ " "+survey.getSurveyDate()+" "+survey.getLocation()+" "+survey.getTemperatureValue()+" "+survey.getTravel14Days()+" "+survey.getCovidSymptoms()+" "+survey.getCovidContact());
+		
+		adminList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
 	}
 	
 	@FXML
