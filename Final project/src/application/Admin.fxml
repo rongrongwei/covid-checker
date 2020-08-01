@@ -15,7 +15,7 @@
             <Image url="@../../mainBackground.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="resultsButton" layoutX="225.0" layoutY="258.0" mnemonicParsing="false" style="-fx-background-color: linear-gradient(#61a2b1, #2A5058);" text="Results" textFill="WHITE">
+      <Button layoutX="225.0" layoutY="258.0" mnemonicParsing="false" onAction="#resultsButtonAction" style="-fx-background-color: linear-gradient(#61a2b1, #2A5058);" text="Results" textFill="WHITE">
          <font>
             <Font name="Arial Narrow Bold" size="13.0" />
          </font>
