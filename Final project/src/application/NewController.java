@@ -13,7 +13,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
+/** 
+* Creates new check in locations and new survey questions
+*/
 public class NewController {
 
     @FXML
@@ -49,7 +51,7 @@ public class NewController {
 		((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
 
     }
-
+	//Write the input from arraylist
     private static void newFile(ArrayList<String> text)
 	{
 		try {
