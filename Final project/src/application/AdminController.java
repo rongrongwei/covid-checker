@@ -12,7 +12,7 @@ import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import model.DataStore;
 import model.Survey;
-import model.TestDataStore;
+
 
 
 public class AdminController {
@@ -24,7 +24,6 @@ public class AdminController {
 	Button resultsButton;
 	private DataStore data;
 	private Survey survey;
-	private TestDataStore test;
 	private ArrayList<Survey> arr = new ArrayList<Survey>();
 	
 	
