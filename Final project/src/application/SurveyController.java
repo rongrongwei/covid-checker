@@ -59,9 +59,14 @@ public class SurveyController {
 			error.showAndWait();
 		}
 		
+		list.add("===================================================");
+		list.add("Employee:");
 		list.add(user);
+		list.add("Survey Results:");
 		list.add(page);
+		list.add("Location, Date, time:");
 		list.add(stamp);
+		list.add("===================================================");
 		
 		File file = new File"SurveyResults.txt");
 		FileWriter f = new FileWriter(file);
