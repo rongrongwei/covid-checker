@@ -1,8 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<AnchorPane minHeight="299.0" minWidth="501.0" prefHeight="299.0" prefWidth="501.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SurveyController">
+   <children>
+      <ImageView fitHeight="299.0" fitWidth="509.0" layoutX="-1.0" opacity="0.33" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../app%20pics/final/mainBackground.jpg" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="survey" layoutX="136.0" layoutY="50.0" prefHeight="200.0" prefWidth="232.0" promptText="Please answer these questions (Y/N) :" />
+      <TextField fx:id="nameID" layoutX="102.0" layoutY="14.0" prefHeight="33.0" prefWidth="297.0" promptText="Employee name and ID (First Last, ID):">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <TextField fx:id="locationDateTime" layoutX="103.0" layoutY="257.0" prefHeight="33.0" prefWidth="297.0" promptText="Enter location, date and time (Location, mm/dd/yy, time):" />
+      <ImageView fitHeight="48.0" fitWidth="85.0" layoutY="7.0" opacity="0.68" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../app%20pics/final/backbtn-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#goBack" opacity="0.001" prefHeight="44.0" prefWidth="66.0" text="back button">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="406.0" layoutY="96.0" mnemonicParsing="false" onAction="#getSurvey" style="-fx-background-color: linear-gradient(#61a2b1, #2A5058);" text="Get Survey" textFill="WHITE">
+         <font>
+            <Font name="Arial Narrow Bold" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="397.0" layoutY="170.0" mnemonicParsing="false" onAction="#submitButton" style="-fx-background-color: linear-gradient(#61a2b1, #2A5058);" text="Submit Survey" textFill="WHITE">
+         <font>
+            <Font name="Arial Narrow Bold" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
 </AnchorPane>
-
