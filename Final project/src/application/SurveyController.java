@@ -21,12 +21,6 @@ import javafx.stage.Stage;
 
 public class SurveyController {
 
-	/* to do 
-	 * read in survey using for loop and File IO
-	 * find a way to have the user answer the questions
-	 * a place for the employee name and id
-	 * save the questions and answers and employee info to a new .txt file
-	 * */
 	@FXML
 	private TextArea survey;
 	
