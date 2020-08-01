@@ -3,7 +3,7 @@ This project is an app for helping employees check in to work.
 
 Instructions for importing application to Eclipse
 
-Step 1: Download the GitHub repository as an zip file.
+Step 1: Download the GitHub repository as a zip file.
 Step 2: Unzip the file.
 Step 3: Click "file" on Eclipse and select "import".
 Step 4: Import the entire folder to your Eclipse.
