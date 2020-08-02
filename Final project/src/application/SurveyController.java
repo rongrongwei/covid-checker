@@ -1,13 +1,8 @@
 package application;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,7 +12,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
@@ -27,89 +21,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 /** 
-* Asks user to answer some questions and store that data
+* Asks user to answer some questions and store that data using Survey class / DataStore class (see model package)
 */
 public class SurveyController implements Initializable{
-//
-//	@FXML
-//	private TextArea survey;
-//	
-//	@FXML
-//	private TextField nameID;
-//	
-//	@FXML
-//	private TextField locationDateTime;
-//	
-//	public ArrayList<String> list = new ArrayList<String>();
-//	
-//	private Scanner reader;
-//	
-//	@FXML
-//	public void getSurvey(ActionEvent event) throws IOException{
-//		File f = new File("new.txt");
-//		reader = new Scanner(f);
-//		while(reader.hasNextLine()){
-//			String line = reader.nextLine();
-//			survey.setText(line);
-//		}
-//		
-//	}
-//	
-//	@FXML 
-//	public void submitButton(ActionEvent event) throws IOException{
-//		String page = survey.getText().toString();
-//		String user = nameID.getText().toString();
-//		String stamp = locationDateTime.getText().toString();
-//		
-//		if((page == null || page.isEmpty()) || (user == null) || (user.isEmpty()) || (stamp == null) || stamp.isEmpty()){
-//			Alert error = new Alert(AlertType.ERROR);
-//			error.setTitle("Error");
-//			error.setHeaderText("Missing info");
-//			error.setContentText("Try Again");
-//			error.showAndWait();
-//		}
-//		
-//		list.add("===================================================");
-//		list.add("Employee:");
-//		list.add(user);
-//		list.add("Survey Results:");
-//		list.add(page);
-//		list.add("Location, Date, time:");
-//		list.add(stamp);
-//		list.add("===================================================");
-//		
-//		File file = new File"SurveyResults.txt");
-//		FileWriter f = new FileWriter(file);
-//		BufferedWriter writer = new BufferedWriter(f);
-//		
-//		for(int i = 0; i < list.size(); i++){
-//			writer.write(list.get(i).toString());
-//			writer.newLine();
-//		}
-//		
-//		writer.close();
-//		
-//		survey.clear();
-//		nameID.clear();
-//		locationDateTime.clear();
-//	}
-//	
-//	@FXML
-//    	public void goBack(ActionEvent event) {
-//    		try{
-//    			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("frontPage.fxml"));
-//    			Parent root1 = (Parent) fxmlLoader.load();
-//    			Stage stage = new Stage();
-//    			stage.setTitle("Survey");
-//    			stage.setScene(new Scene(root1));
-//    			stage.show();
-//
-//   			((Stage)(((Button)event.getSource()).getScene().getWindow())).close();
-//    		} catch (Exception e){
-//    		System.out.println("Cant load new window");
-//    		}
-//    	}
-
 
     @FXML
     private TextField temperatureBox;
@@ -158,6 +72,9 @@ public class SurveyController implements Initializable{
 
     @FXML
     void goBack(ActionEvent event) {
+    	/**
+    	 * this button controller takes the user back to the front page
+    	 */
     	try{
     		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("frontPage.fxml"));
     		Parent root1 = (Parent) fxmlLoader.load();
@@ -176,6 +93,12 @@ public class SurveyController implements Initializable{
 
     @FXML
     void submitButton(ActionEvent event) throws Exception {
+	    /**
+	     * This method validates the survey form to make sure all data has been entered correctly
+	     * This method saves the survey data using the DataStore
+	     * This method raises a warning window if the user has entered data that might indicate that the user
+	     * is at risk for spreading COVID-19
+	     */
     	// get text fields
     	String employeeId = employeeIDBox.getText();
     	String date = DateBox.getText();
@@ -247,6 +170,7 @@ public class SurveyController implements Initializable{
     		return;
     	}
     		
+    	// make new survey
     	Survey newSurvey = new Survey(employeeId, date, location, temperature, travelStatus, symptomsStatus, contactStatus);
     	
     	// Use Data Store to Save Survey
@@ -315,7 +239,9 @@ public class SurveyController implements Initializable{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		/**
+		 * populates drop down box 
+		 */
 		// Hard Code Locations for Now
 		locationBox.getItems().removeAll(locationBox.getItems());
 		locationBox.getItems().addAll("Location A", "Location B", "Location C");

@@ -1,5 +1,10 @@
 package model;
-
+/**
+ * Survey class is used to store survey data. each element is private with a getter and a setter.
+ * method isSickSurvey() is used to score the survey data if it has all been loaded
+ * @author rongrong
+ *
+ */
 public class Survey {
 	private String employeeId;
 	private String surveyDate;

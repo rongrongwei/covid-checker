@@ -2,12 +2,14 @@ package model;
 import java.io.File;
 import javax.crypto.Cipher;
 
-import model.KeyManager;
-
-/*
+/**
+ * This class is used to encrypt Strings to unreadable byte[] sequences
+ * This class is also used to decrypt byte[] sequences to readable Strings
  * use AES (Symmetric) encryption
- * created by Rongrong Wei
+ * @author rongrong
+ *
  */
+
 
 public class Encryption {
 	private KeyManager myKey = null;

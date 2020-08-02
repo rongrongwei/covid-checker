@@ -1,6 +1,11 @@
 package model;
 import java.util.ArrayList;
 
+/**
+ * @author rongrong
+ * used to test the datastore object
+ */
+
 public class TestDataStore {
 
 	public static void main(String[] args) throws Exception {
