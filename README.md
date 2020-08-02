@@ -26,7 +26,11 @@ This cryptography implementation was developed using the java crypto and securit
 ## What does the application looks like?
 
 Main page:
+[](https://raw.githubusercontent.com/rongrongwei/covid-checker/master/readme_img/main_page.png)
+
 Sign in(Button)-Takes user to a sign in page and will ask user for username and password, then it will take the user to a survey page to answer some questions.
+
+
 
 Create New(Button)-Takes administrator to a password page first, if the password is corrcet it will take the administrator to a page that they can add new check in loactions and new survey questions. The new number of locations and questions will be storing in a text file for future update purposes.
 
