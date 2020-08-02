@@ -1,5 +1,5 @@
 # covid-checker
-This project is an app for helping employees check in to work. When testing this application the default password is always *123.*
+This project is an app for helping employees check in to work. When testing this application the default password is always "123".
 
 ## Instructions for importing application to Eclipse
 
