@@ -1,6 +1,6 @@
 # covid-checker
 ## Project Details: 
-Project Name: Covid-19 Temperature Checker
+Project Name: Covid-19 Temperature Checker  
 Team Name: Group 3  
 Team Members:  
 - Rongrong Wei  
