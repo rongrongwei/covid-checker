@@ -28,7 +28,7 @@ Main page:
 Sign in(Button)-Takes user to a sign in page and will ask user for username and password, then it will take the user to a survey page to answer some questions.
 ![img](https://raw.githubusercontent.com/rongrongwei/covid-checker/master/readme_img/survey.png)
 
-Create New(Button)-Takes administrator to a password page first, if the password is correct it will take the administrator to a page that they can add new check in loactions and new survey questions. The new number of locations and questions will be storing in a text file for future update purposes.
+Create New(Button)-Takes administrator to a password page first, if the password is correct it will take the administrator to a page that they can add new check in loactions and new survey questions. The new number of locations and questions will be storing in a text file for future update purposes. Note that this functionality has not been fully developed because of limited time.
 
 Administration(Button)-Takes administrator to a page that will show them the survey results.
 ![img](https://raw.githubusercontent.com/rongrongwei/covid-checker/master/readme_img/adminView.png)
