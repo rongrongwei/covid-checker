@@ -13,9 +13,14 @@ import java.security.cert.CertificateException;
 
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
+/**
+ * KeyManager is used to generate and store the AES-256-bit encryption key used to encrypt the data in this project
+ * reference: https://www.tutorialspoint.com/java_cryptography/java_cryptography_storing_keys.htm
+ * reference: http://tutorials.jenkov.com/java-cryptography/index.html
+ * @author rongrong
+ *
+ */
 
-// reference: https://www.tutorialspoint.com/java_cryptography/java_cryptography_storing_keys.htm
-// reference: http://tutorials.jenkov.com/java-cryptography/index.html
 public class KeyManager {
 	private char[] password;
 	private String keyFile;

@@ -1,8 +1,6 @@
 package model;
 import java.util.ArrayList;
 
-import model.Survey;
-
 public class Employee {
 	public String employeeId;
 	private String firstName;

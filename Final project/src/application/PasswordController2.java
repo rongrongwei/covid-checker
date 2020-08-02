@@ -13,7 +13,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 /** 
-* Ask the administrator for password in order to go to the create new page
+* Ask the administrator for password in order to go to the admin new page
 */
 public class PasswordController2 {
 	

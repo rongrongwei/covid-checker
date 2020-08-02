@@ -26,12 +26,13 @@ public class AdminController {
 	@FXML
 	Button resultsButton;
 	private DataStore data;
-	//private ArrayList<Survey> arr = new ArrayList<Survey>();
 	
 	
 	@FXML
 	public void resultsButtonAction(ActionEvent event) throws Exception{
-		
+		/**
+		 * used to populate the list view with a set of employees who are currently sick
+		 */
 		adminList.getItems().clear();
 		data = new DataStore("123", "keyfile", "employeefile", "surveyfile"); // remove hard-coding later
     	ArrayList<Survey> surveyList = data.loadSurveysList();
@@ -45,9 +46,7 @@ public class AdminController {
 			}
 			
 		}
-		
-		//resultsTextArea.setText(survey.getEmployeeId()+ " "+survey.getSurveyDate()+" "+survey.getLocation()+" "+survey.getTemperatureValue()+" "+survey.getTravel14Days()+" "+survey.getCovidSymptoms()+" "+survey.getCovidContact());
-		
+				
 		adminList.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
 	}

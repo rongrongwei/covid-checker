@@ -5,20 +5,19 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import model.Employee;
-import model.Encryption;
-import model.Survey;
 
-/*
- * Employee CSV Notes:
- * The header of the CSV File is this:
- * EmployeeId[0], FirstName[1], LastName[2], illnessStatus[3], ...?
- */
 
-/*
+/**
+ * DataStore object handles file input and output. It uses an Encryption instance to encrypt the data.
+ * This object will load encrypted Survey and Employee data. It will store the data in encrypted files for later access.
+ * 
  * Survey CSV Notes:
  * The header of the CSV File is this:
  * 	employeeId[0], surveyDate[1], location[2], temperatureValue[3], travel14Days[4], covidSymptoms[5], covidContact[6]
+ * 
+ * Employee CSV Notes:
+ * The header of the CSV File is this:
+ * EmployeeId[0], FirstName[1], LastName[2], illnessStatus[3], ...?
  */
 
 public class DataStore {
@@ -205,8 +204,8 @@ public class DataStore {
     		inventoryFile.createNewFile();
     	}
     }
-	
-	// comment these out unless we need to use hash map with key as employee ID and value as list of surveys by that employee
+}
+// comment these out unless we need to use hash map with key as employee ID and value as list of surveys by that employee
 //	public HashMap<String, ArrayList<Survey>> loadSurveysHM() throws Exception {
 //		// read all of the data from the employee file and decrypt the data 
 //		byte[] fileContent = Files.readAllBytes(Paths.get(surveyFile));
@@ -269,6 +268,3 @@ public class DataStore {
 //		fos.close();
 //		
 //	}
-		
-		
-}
