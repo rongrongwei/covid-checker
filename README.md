@@ -2,12 +2,9 @@
 This project is an app for helping employees check in to work. When testing this application the default password is always "123".
 
 ## Instructions for importing application to Eclipse
-
-Step 1: Download the GitHub repository as a zip file.  
-Step 2: Unzip the file.  
-Step 3: Click "file" on Eclipse and select "import".  
-Step 4: Import the entire folder to your Eclipse.  
-Step 5: Click "Run" to run the application.  
+Step 1: Dowload the archive file `covidAppFinalProject.zip` from the root directory of the project  
+Step 2: Go to import in Eclipse and import an "existing project"  
+Step 3: Use the Main.java file's main to run the application. (Don't run `TestDataStore.java` in the model package).
 
 ## What is special about this application?
 This application helps employees check in to work, tracks sick employees and stores health data using 256-bit AES cryptography - an industry standard technique for preventing unwanted data access.
@@ -30,7 +27,6 @@ Main page:
 
 Sign in(Button)-Takes user to a sign in page and will ask user for username and password, then it will take the user to a survey page to answer some questions.
 ![img](https://raw.githubusercontent.com/rongrongwei/covid-checker/master/readme_img/survey.png)
-
 
 Create New(Button)-Takes administrator to a password page first, if the password is correct it will take the administrator to a page that they can add new check in loactions and new survey questions. The new number of locations and questions will be storing in a text file for future update purposes.
 
