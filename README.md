@@ -1,5 +1,20 @@
 # covid-checker
-This project is an app for helping employees check in to work. When testing this application the default password is always "123".
+## Project Details: 
+Project Name: Covid-19 Temperature Checker
+Team Name: Group 3  
+Team Members:  
+- Rongrong Wei  
+- Ethan Chen  
+- Michelle Richardson (team lead)  
+- Adam Alaniz  
+- Jose Muniz  
+
+Short description. This project is an app for helping employees check in to work.  
+Known Bugs: No known bugs  
+Login Info: Default Password is "123"  
+Requirements: Java8, JavaFX, SceneBuild (v3 or greater)  
+
+Important notes: When testing this application the default password is always "123".  
 
 ## Instructions for importing application to Eclipse
 Step 1: Dowload the archive file `covidAppFinalProject.zip` from the root directory of the project  
