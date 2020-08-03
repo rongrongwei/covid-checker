@@ -22,7 +22,7 @@ Step 2: Go to import in Eclipse and import an "existing project"
 Step 3: Use the Main.java file's main to run the application. (Don't run `TestDataStore.java` in the model package).
 
 ## What is special about this application?
-This application helps employees check in to work, tracks sick employees and stores health data using 256-bit AES cryptography - an industry standard technique for preventing unwanted data access.
+This application helps employees check in to work, tracks sick employees and stores health data using 128-bit AES cryptography - an industry standard technique for preventing unwanted data access.
 
 All data files with sensitive data in this application are stored in an unreadable format. For example, the survey data file looks like this:
 ```
