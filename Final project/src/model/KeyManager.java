@@ -57,7 +57,7 @@ public class KeyManager {
 		KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
 
 		SecureRandom secureRandom = new SecureRandom();
-		int keyBitSize = 256;
+		int keyBitSize = 128; //VDI does not support 256?
 		keyGenerator.init(keyBitSize, secureRandom);
 
 		SecretKey secretKey = keyGenerator.generateKey();
