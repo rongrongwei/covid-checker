@@ -1,7 +1,7 @@
 # covid-checker
 ## Project Details: 
 Project Name: Covid-19 Temperature Checker  
-Team Name: Group 3 (Coders Against COVID)
+Team Name: Group 3 (Coders Against COVID)  
 Team Members:  
 - Rongrong Wei  
 - Ethan Chen  
