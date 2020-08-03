@@ -14,7 +14,9 @@ Known Bugs: Passwords are hardcoded and can't be changed by the user right now. 
 Login Info: Default Password is "123"  
 Requirements: Java8, JavaFX, SceneBuild (v3 or greater)  
 
-Important notes: When testing this application the default password is always "123".  
+Important notes: When testing this application the default password is always "123". 
+
+App does not depend on data for demo. To test app, enter sample survey data for sick person and check response in Administrator View (password = "123").  
 
 ## Instructions for importing application to Eclipse
 Step 1: Dowload the archive file `covidAppFinalProject.zip` from the root directory of the project  
