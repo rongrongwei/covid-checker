@@ -171,14 +171,14 @@ public class DataStore {
 				surveyOutput +=  "false,,";
 			}
 			
-			if (survey.getTravel14Days()) {
+			if (survey.getCovidSymptoms()) {
 				surveyOutput +=  "true,,";
 			}
 			else {
 				surveyOutput +=  "false,,";
 			}
 			
-			if (survey.getTravel14Days()) {
+			if (survey.getCovidContact()) {
 				surveyOutput +=  "true,,";
 			}
 			else {
