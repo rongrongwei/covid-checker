@@ -2,12 +2,6 @@
 ## Project Details: 
 Project Name: Covid-19 Temperature Checker  
 Team Name: Group 3 (Coders Against COVID)  
-Team Members:  
-- Rongrong Wei  
-- Ethan Chen  
-- Michelle Richardson (team lead)  
-- Adam Alaniz  
-- Jose Muniz  
 
 Short description. This project is an app for helping employees check in to work.  
 Known Bugs: Passwords are hardcoded and can't be changed by the user right now.  "New" page does not create content. No date / employee id validation in the sign-in form.  
